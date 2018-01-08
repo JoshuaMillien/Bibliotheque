@@ -16,11 +16,17 @@ public class Boutons extends JButton{
   public Boutons(String str){
     super(str);
     this.name = str;
-    try {
+    this.setForeground(Color.white);
+    /*try {
       img = ImageIO.read(new File("../Images/StrangerThings.jpg"));
     } catch (IOException e) {
       e.printStackTrace();
-    }
+  }*/
+  }
+
+  public Boutons (String str, Color c){
+      super(str);
+      this.name = str;
   }
 
   public Image getImage(){
@@ -29,13 +35,19 @@ public class Boutons extends JButton{
 
 
 
+
   public void paintComponent(Graphics g){
       // This function allows the image to appear in the button
-    Graphics2D g2d = (Graphics2D)g;
+      Graphics2D g2d = (Graphics2D)g;
 
-    g2d.drawImage(img, 0, 0, this.getWidth(), this.getHeight(), this);
-    g2d.drawString(this.name, this.getWidth() / 2 - (this.getWidth() / 2 /4), (this.getHeight() / 2) + 5);
-  }
+          GradientPaint gp = new GradientPaint(0, 0, Color.blue, 0, 20, Color.cyan, true);
+          g2d.setPaint(gp);
+
+          g2d.drawImage(img, 0, 0, this.getWidth(), this.getHeight(), this);
+
+          g2d.setColor(Color.red);
+
+          g2d.drawString(this.name, this.getWidth() / 2 - (this.getWidth() / 2 /4), (this.getHeight() / 2) + 5);}
 
 // Actions du bouton
 

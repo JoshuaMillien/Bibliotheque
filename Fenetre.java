@@ -47,16 +47,18 @@ public class Fenetre extends JFrame implements ActionListener {
 
         Font police = new Font("Tahoma", Font.BOLD, 16);
         label.setFont(police);
+        label.setForeground(Color.white);
+        Color c = Color.decode("#373B39");
 
         header.add(label);
         header.setBounds(0,0,1600,120);
-        header.setBackground(Color.blue);
+        header.setBackground(c);
 
         nextPage.add(next);
-        nextPage.setBackground(Color.red);
+        nextPage.setBackground(c);
         nextPage.setBounds(1450,120,150,800);
 
-        container.setBackground(Color.yellow);
+        container.setBackground(c);
         container.setBounds(0,120,1450,800);
 
         this.getContentPane().add(header);
@@ -92,8 +94,10 @@ public class Fenetre extends JFrame implements ActionListener {
 
     public void actionPerformed(ActionEvent arg0) {
         //Lorsque l'on clique sur le bouton, on met à jour le JLabel
-        if(arg0.getSource() == button)
+        if(arg0.getSource() == button){
             label.setText("bouton 1");
+            button.setForeground(Color.white);
+        }
 
         if(arg0.getSource() == button2){
             label.setText("bouton 2");
@@ -101,9 +105,10 @@ public class Fenetre extends JFrame implements ActionListener {
         if(arg0.getSource() == button3){
             label.setText("bouton 3");
         }
+        if(arg0.getSource() == next){
+            button.setBackground(Color.yellow);
+        }
 
         }
 
     }
-
-

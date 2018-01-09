@@ -10,7 +10,8 @@ import java.awt.Image;
 import java.awt.Dimension;
 import java.io.File;
 import java.io.IOException;
-
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 
 
 
@@ -32,6 +33,15 @@ public class Fenetre extends JFrame implements ActionListener {
     private Boutons button4 = new Boutons ("4");
     private Boutons button5 = new Boutons ("5");
     private Boutons button6 = new Boutons ("6");
+    private Boutons button7 = new Boutons ("7");
+    private Boutons button8 = new Boutons ("8");
+    private Boutons button9 = new Boutons ("9");
+    private JButton button10 = new JButton ("10");
+    private JButton button11 = new JButton ("11");
+    private JButton button12 = new JButton ("12");
+
+    Graphics g;
+    Graphics2D g2d = (Graphics2D)g;
 
     public Fenetre(){
 
@@ -54,7 +64,6 @@ public class Fenetre extends JFrame implements ActionListener {
         header.setBounds(0,0,1600,120);
         header.setBackground(c);
 
-        nextPage.add(next);
         nextPage.setBackground(c);
         nextPage.setBounds(1450,120,150,800);
 
@@ -86,6 +95,25 @@ public class Fenetre extends JFrame implements ActionListener {
         container.add(button6); // the first button has stranger things background
         button6.addActionListener(this);
 
+        container.add(button7); // the first button has stranger things background
+        button7.addActionListener(this);
+
+        container.add(button8); // the first button has stranger things background
+        button8.addActionListener(this);
+
+        container.add(button9); // the first button has stranger things background
+        button9.addActionListener(this);
+
+        container.add(button10); // the first button has stranger things background
+        button10.addActionListener(this);
+
+        container.add(button11); // the first button has stranger things background
+        button11.addActionListener(this);
+
+        container.add(button12); // the first button has stranger things background
+        button12.addActionListener(this);
+
+        nextPage.add(next);
         next.addActionListener(this);
 
         // ~
@@ -106,7 +134,7 @@ public class Fenetre extends JFrame implements ActionListener {
             label.setText("bouton 3");
         }
         if(arg0.getSource() == next){
-            button.setBackground(Color.yellow);
+            label.setText("Page suivante");
         }
 
         }

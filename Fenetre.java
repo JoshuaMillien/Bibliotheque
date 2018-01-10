@@ -12,8 +12,7 @@ import java.io.File;
 import java.io.IOException;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-
-
+import java.util.ArrayList;
 
 public class Fenetre extends JFrame implements ActionListener {
     // JLabels
@@ -27,21 +26,7 @@ public class Fenetre extends JFrame implements ActionListener {
     private JSplitPane split2;
     // Buttons list
     private JButton next = new JButton("next");
-    private Boutons button = new Boutons ("1");
-    private Boutons button2 = new Boutons ("2");
-    private Boutons button3 = new Boutons ("3");
-    private Boutons button4 = new Boutons ("4");
-    private Boutons button5 = new Boutons ("5");
-    private Boutons button6 = new Boutons ("6");
-    private Boutons button7 = new Boutons ("7");
-    private Boutons button8 = new Boutons ("8");
-    private Boutons button9 = new Boutons ("9");
-    private JButton button10 = new JButton ("10");
-    private JButton button11 = new JButton ("11");
-    private JButton button12 = new JButton ("12");
-
-    Graphics g;
-    Graphics2D g2d = (Graphics2D)g;
+    private ArrayList<Button> listeBoutons = new ArrayList<Button>();
 
     public Fenetre(){
 
@@ -75,43 +60,22 @@ public class Fenetre extends JFrame implements ActionListener {
         this.getContentPane().add(nextPage);
 
         container.setLayout (new GridLayout(3,4)); // 4 buttons on 3 lines
+
+        // Buttons creation
+        for (int i = 0 ; i<12;i++){
+            Button bouton = new Button("button"+i);
+            listeBoutons.add(bouton);
+            System.out.println("Array List :\n" + listeBoutons.get(i).getName());
+        }
         // Buttons set up
 
-        container.add(button); // the first button has stranger things background
-        button.addActionListener(this);
+        for (int i = 0 ; i<12;i++){
+            Button bouton = listeBoutons.get(i);
+            container.add(bouton);
+            bouton.addActionListener(this);
+        }
 
-        container.add(button2); // the first button has stranger things background
-        button2.addActionListener(this);
-
-        container.add(button3); // the first button has stranger things background
-        button3.addActionListener(this);
-
-        container.add(button4); // the first button has stranger things background
-        button4.addActionListener(this);
-
-        container.add(button5); // the first button has stranger things background
-        button5.addActionListener(this);
-
-        container.add(button6); // the first button has stranger things background
-        button6.addActionListener(this);
-
-        container.add(button7); // the first button has stranger things background
-        button7.addActionListener(this);
-
-        container.add(button8); // the first button has stranger things background
-        button8.addActionListener(this);
-
-        container.add(button9); // the first button has stranger things background
-        button9.addActionListener(this);
-
-        container.add(button10); // the first button has stranger things background
-        button10.addActionListener(this);
-
-        container.add(button11); // the first button has stranger things background
-        button11.addActionListener(this);
-
-        container.add(button12); // the first button has stranger things background
-        button12.addActionListener(this);
+        listeBoutons.get(0).setIcon(new ImageIcon("../Images/StrangerThings.jpg"));
 
         nextPage.add(next);
         next.addActionListener(this);
@@ -121,20 +85,31 @@ public class Fenetre extends JFrame implements ActionListener {
 
 
     public void actionPerformed(ActionEvent arg0) {
-        //Lorsque l'on clique sur le bouton, on met à jour le JLabel
-        if(arg0.getSource() == button){
+        if(arg0.getSource() == listeBoutons.get(0)){
+            /**When we click on the button, we execute a bash command.
+            * It will be useFul to launch a movie.
+            */
+
             label.setText("bouton 1");
-            button.setForeground(Color.white);
+            listeBoutons.get(0).setForeground(Color.white);
+            try{
+                Process proc=Runtime.getRuntime().exec("vlc");
+            }
+            catch(IOException e){
+                System.out.println("Problème lors de l'ouverture du fichier lié au bouton");
+            }
         }
 
-        if(arg0.getSource() == button2){
+        if(arg0.getSource() == listeBoutons.get(1)){
             label.setText("bouton 2");
         }
-        if(arg0.getSource() == button3){
+        if(arg0.getSource() == listeBoutons.get(2)){
             label.setText("bouton 3");
         }
         if(arg0.getSource() == next){
             label.setText("Page suivante");
+            listeBoutons.get(10).setIcon(new ImageIcon("../Images/Bioshock.jpg"));
+
         }
 
         }

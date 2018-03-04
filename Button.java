@@ -10,37 +10,18 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.JButton;
 
-public class Boutons extends JButton{
+public class Button extends JButton{
   private String name;
-  private Image img;
-  public Boutons(String str){
+  public Button(String str){
     super(str);
     this.name = str;
-    this.setForeground(Color.white);
-
   }
 
-  public Boutons (String str, Color c){
-      super(str);
-      this.name = str;
-  }
-
-  public Image getImage(){
-      return this.img;
+  public String getName(){
+      return this.name;
   }
 
 
-
-
-  public void paintComponent(Graphics g){
-      // This function allows the image to appear in the button
-      Graphics2D g2d = (Graphics2D)g;
-
-      g2d.setColor(Color.white);
-
-
-      g2d.drawString(this.name, this.getWidth() / 2 - (this.getWidth() / 2 /4), (this.getHeight() / 2) + 5);
-}
 // Actions du bouton
 
     //Méthode appelée lors du clic de souris

@@ -21,9 +21,7 @@ public class Fenetre extends JFrame implements ActionListener {
     private JPanel container = new JPanel ();
     private JPanel header = new JPanel ();
     private JPanel nextPage = new JPanel ();
-    //Splits
-    private JSplitPane split;
-    private JSplitPane split2;
+
     // Buttons list
     private JButton next = new JButton("next");
     private Boutons button = new Boutons ("1");
@@ -37,7 +35,6 @@ public class Fenetre extends JFrame implements ActionListener {
 
         // window's parameters
         this.setTitle("Ma première fenêtre Java");
-        this.setSize(400, 500);
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // the window can closes
         this.setExtendedState(JFrame.MAXIMIZED_BOTH); // the window opens in fullscreen mode

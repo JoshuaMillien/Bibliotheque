@@ -11,30 +11,33 @@ import javax.imageio.ImageIO;
 import javax.swing.JButton;
 
 public class Boutons extends JButton{
-  private String name;
-  private Image img;
-  public Boutons(String str){
-    super(str);
-    this.name = str;
-    try {
-      img = ImageIO.read(new File("../Images/StrangerThings.jpg"));
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
-  }
+	private static int id=-1;
+	private String name;
+	private Image img;
+  
+	public Boutons(String str){
+    
+		super(str);
+		this.name = str;
+		this.id++;
+		try {
+			img = ImageIO.read(new File("../../Images/Wallpapers/Arrow_BD.jpg"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 
-  public Image getImage(){
-      return this.img;
-  }
+	public Image getImage(){
+		return this.img;
+	}
 
 
 
-  public void paintComponent(Graphics g){
-      // This function allows the image to appear in the button
-    Graphics2D g2d = (Graphics2D)g;
-
-    g2d.drawImage(img, 0, 0, this.getWidth(), this.getHeight(), this);
-    g2d.drawString(this.name, this.getWidth() / 2 - (this.getWidth() / 2 /4), (this.getHeight() / 2) + 5);
+	public void paintComponent(Graphics g){
+		// This function allows the image to appear in the button
+		Graphics2D g2d = (Graphics2D)g;
+		g2d.drawImage(img, 0, 0, this.getWidth(), this.getHeight(), this);
+		g2d.drawString(this.name, this.getWidth() / 2 - (this.getWidth() / 2 /4), (this.getHeight() / 2) + 5);
   }
 
 // Actions du bouton

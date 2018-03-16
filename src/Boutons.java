@@ -33,6 +33,11 @@ public class Boutons extends JButton{
 
 
 
+	@Override
+	public String toString() {
+		return this.name + " " + this.id;
+	}
+
 	public void paintComponent(Graphics g){
 		// This function allows the image to appear in the button
 		Graphics2D g2d = (Graphics2D)g;

@@ -4,6 +4,7 @@ public class Main {
         Fenetre window = new Fenetre();
         window.display();
         window.addButtons();
+        window.displayList();
 
     }
 }

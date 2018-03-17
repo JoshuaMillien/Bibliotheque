@@ -12,21 +12,19 @@ import javax.swing.JButton;
 
 public class Button extends JButton {
 	
-	private static int id = -1;
 	private BufferedImage img;
 	private String name;
 	
 	public Button(String str) {
 		super(str);
 		this.name = str;
-		this.id++;
 		
 		
 	}
 
 	@Override
 	public String toString() {
-		return this.name;
+		return this.name ;
 	}
 	
 	
